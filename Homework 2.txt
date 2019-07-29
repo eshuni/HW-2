@@ -1,0 +1,31 @@
+Sub Testing()
+   
+    Dim Ticker As String
+    
+    Dim TotalVol As Double
+    TotalVol = 0
+    
+    Dim Summary As Integer
+    Summary = 2
+    
+    For i = 2 To 800000
+     If Cells(i + 1, 1).Value <> Cells(i, 1).Value Then
+       
+    Ticker = Cells(i, 1).Value
+    
+    TotalVol = Cells(i, 7).Value + TotalVol
+    
+    Range("I" & Summary).Value = Ticker
+    Range("J" & Summary).Value = TotalVol
+    
+    Summary = Summary + 1
+    TotalVol = 0
+    
+    Else
+        TotalVol = Cells(i, 7).Value + TotalVol
+        
+    End If
+    
+    Next i
+    
+End Sub
